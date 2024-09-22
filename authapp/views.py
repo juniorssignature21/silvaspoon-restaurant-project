@@ -17,6 +17,10 @@ def register_user(request):
         pswd = request.POST.get("pswd")
         cpswd = request.POST.get("cpswd")
         
+        if len(pswd) < 8:
+            messages.warning(request, "Password must be above 8 characters")
+            return redirect("/auth/register")
+        
         if cpswd != pswd:
             messages.info(request, "Passwords does not match!!!")
             return redirect('/auth/register')
@@ -54,6 +58,9 @@ def register_user(request):
             messages.success(request, f"Hello {username} \n Welcome to silvaspoon!!!")
             return redirect('/')
         return redirect('/auth/register')
+    context = {
+        
+    }
     return render(request, "authapp/register.html")
 
         

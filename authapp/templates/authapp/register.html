@@ -13,27 +13,62 @@
 <body>
     
 <div class="form-container" style="background-image:url({% static "/img/hero-carousel/hero-carousel-1.jpg" %});">
-  <form action="">
+  <form action="{% url "register" %}" method="POST">
     {% csrf_token %}
     <div class="form-group">
+      <h2 class="text-white font-bold text-[30px]">
+        Sign Up 
+      </h2>
       <div class="input-form">
-        <input type="text">
+        <input type="text" name="fname" placeholder="First name...">
       </div>
       <div class="input-form">
-        <input type="text">
+        <input type="text", name="lname" placeholder="Last name...">
       </div>
       <div class="input-form">
-        <input type="email">
+        <input type="email" name="email" placeholder="Email: johndoe@gmail.com">
       </div>
       <div class="input-form">
-        <input type="password">
+        <input type="password" name="pswd" placeholder="**********">
       </div>
       <div class="input-form">
-        <input type="password">
+        <input type="password" name="cpswd" placeholder="**********">
       </div>
-    <button type="submit">
+      {% if messages %}
+      {% for message in messages %}
+      <div
+        class="alert alert-primary alert-dismissible fade show"
+        role="alert"
+      >
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="alert"
+          aria-label="Close"
+        ></button>
+      
+        <strong>
+          {{message}}
+        </strong>
+      </div>
+      
+      {% endfor %}
+      {% endif %}
+    <button type="submit" class="bg-[#ffb03b] w-[200px] h-[30px] rounded-xl">
+      <span class="text-white font-bold">
       Register
+      </span>
     </button>
+    <br>
+    <div class="flex items-center justify-around px-10 w-[300px]">
+      <p>
+        Already have an account?
+      </p>
+      &nbsp;
+      <a href="login" class="text-blue-800">
+        login
+      </a>
+    </div>
     </div>
   </form>
 </div>

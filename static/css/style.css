@@ -16,7 +16,7 @@
 }
 .form-container .form-group{
     width: 400px;
-    height: 400px;
+    height: 450px;
     /* border: 2px solid red; */
     background: rgb(255, 255, 255, 0.2);
     border: 2px solid rgb(255, 255, 255, 0.5);
@@ -34,7 +34,19 @@
     border: 2px solid rgb(255, 255, 255, 0.5);
     padding: 5px;
     background: rgb(255, 255, 255, 0.2);
+    color: #fff;
+}
+.form-group .input-form input::placeholder{
+    color: #fff;
 }
 form .input-form{
     margin: 10px 0;
+}
+@media only screen and (max-width:375px) {
+    .form-container .form-group{
+        width: 300px;
+    }
+    .form-group .input-form input{
+        width: 250px;
+    }
 }
